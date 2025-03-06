@@ -8,7 +8,6 @@ from db.bd import get_db
 from datetime import datetime, timedelta
 import jwt
 import os
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -54,3 +53,5 @@ def get_or_create_user(user: UserCreate, db: Session = Depends(get_db)):
     user_data = {"clerkId": new_user.clerkId, "username": new_user.username}
     token = create_access_token(user_data)
     return {"data": new_user, "token": token}
+
+
